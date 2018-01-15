@@ -132,168 +132,164 @@ public class MeteoActivity extends Activity {
             JSONObject jsonResponse = null;
             try {
                 jsonResponse = new JSONObject(response);
-                JSONArray list = jsonResponse.getJSONArray("list");
-                JSONObject resultat = list.getJSONObject(0);
-                double temp = resultat.getJSONObject("main").getDouble("temp");
-                String temperature;
-                temp = temp - 273.15;
-                temperature = String.valueOf(temp).substring(0,3) +" °C";
-                TextView temp_jour = (TextView) findViewById(R.id.today_temperature);
-                temp_jour.setText(temperature);
+                if(jsonResponse.getString("cod") == "300") {
+                    JSONArray list = jsonResponse.getJSONArray("list");
+                    JSONObject resultat = list.getJSONObject(0);
+                    double temp = resultat.getJSONObject("main").getDouble("temp");
+                    String temperature;
+                    temp = temp - 273.15;
+                    temperature = String.valueOf(temp).substring(0, 3) + " °C";
+                    TextView temp_jour = (TextView) findViewById(R.id.today_temperature);
+                    temp_jour.setText(temperature);
 
-                String weather = resultat.getJSONArray("weather").getJSONObject(0).getString("main");
-                TextView weather_jour = (TextView) findViewById(R.id.today_weather);
-                weather_jour.setText(weather);
+                    String weather = resultat.getJSONArray("weather").getJSONObject(0).getString("main");
+                    TextView weather_jour = (TextView) findViewById(R.id.today_weather);
+                    weather_jour.setText(weather);
 
-                ImageView imgView = (ImageView)findViewById(R.id.today_weather_image);
+                    ImageView imgView = (ImageView) findViewById(R.id.today_weather_image);
 
 
-                switch (weather)
-                {
-                    case "Clear":
-                        imgView.setImageResource(R.drawable.clear);
-                        break;
-                    case "Clouds":
-                        imgView.setImageResource(R.drawable.clouds);
-                        break;
-                    case "Rain":
-                        imgView.setImageResource(R.drawable.rain);
-                        break;
-                    case "Snow":
-                        imgView.setImageResource(R.drawable.snow);
-                        break;
-                    default:
-                        imgView.setImageResource(R.drawable.snow);
+                    switch (weather) {
+                        case "Clear":
+                            imgView.setImageResource(R.drawable.clear);
+                            break;
+                        case "Clouds":
+                            imgView.setImageResource(R.drawable.clouds);
+                            break;
+                        case "Rain":
+                            imgView.setImageResource(R.drawable.rain);
+                            break;
+                        case "Snow":
+                            imgView.setImageResource(R.drawable.snow);
+                            break;
+                        default:
+                            imgView.setImageResource(R.drawable.snow);
+                    }
+
+                    resultat = list.getJSONObject(8);
+                    temp = resultat.getJSONObject("main").getDouble("temp");
+                    temp -= 273.15;
+                    temperature = String.valueOf(temp).substring(0, 3) + " °C";
+                    TextView temp_jourp1 = (TextView) findViewById(R.id.day_p1_temperature);
+                    temp_jourp1.setText(temperature);
+
+                    weather = resultat.getJSONArray("weather").getJSONObject(0).getString("main");
+                    TextView weather_jourp1 = (TextView) findViewById(R.id.day_p1_weather);
+                    weather_jourp1.setText(weather);
+
+                    ImageView imgView1 = (ImageView) findViewById(R.id.day_p1_weather_image);
+
+
+                    switch (weather) {
+                        case "Clear":
+                            imgView1.setImageResource(R.drawable.clear);
+                            break;
+                        case "Clouds":
+                            imgView1.setImageResource(R.drawable.clouds);
+                            break;
+                        case "Rain":
+                            imgView1.setImageResource(R.drawable.rain);
+                            break;
+                        case "Snow":
+                            imgView1.setImageResource(R.drawable.snow);
+                            break;
+                        default:
+                            imgView.setImageResource(R.drawable.snow);
+                    }
+
+                    resultat = list.getJSONObject(16);
+                    temp = resultat.getJSONObject("main").getDouble("temp");
+                    temp -= 273.15;
+                    temperature = String.valueOf(temp).substring(0, 3) + " °C";
+                    TextView temp_jourp2 = (TextView) findViewById(R.id.day_p2_temperature);
+                    temp_jourp2.setText(temperature);
+
+                    weather = resultat.getJSONArray("weather").getJSONObject(0).getString("main");
+                    TextView weather_jourp2 = (TextView) findViewById(R.id.day_p2_weather);
+                    weather_jourp2.setText(weather);
+
+                    ImageView imgView2 = (ImageView) findViewById(R.id.day_p2_weather_image);
+
+
+                    switch (weather) {
+                        case "Clear":
+                            imgView2.setImageResource(R.drawable.clear);
+                            break;
+                        case "Clouds":
+                            imgView2.setImageResource(R.drawable.clouds);
+                            break;
+                        case "Rain":
+                            imgView2.setImageResource(R.drawable.rain);
+                            break;
+                        case "Snow":
+                            imgView2.setImageResource(R.drawable.snow);
+                            break;
+                        default:
+                            imgView2.setImageResource(R.drawable.snow);
+                    }
+
+                    resultat = list.getJSONObject(24);
+                    temp = resultat.getJSONObject("main").getDouble("temp");
+                    temp -= 273.15;
+                    temperature = String.valueOf(temp).substring(0, 3) + " °C";
+                    TextView temp_jourp3 = (TextView) findViewById(R.id.day_p3_temperature);
+                    temp_jourp3.setText(temperature);
+
+                    weather = resultat.getJSONArray("weather").getJSONObject(0).getString("main");
+                    TextView weather_jourp3 = (TextView) findViewById(R.id.day_p3_weather);
+                    weather_jourp3.setText(weather);
+
+                    ImageView imgView3 = (ImageView) findViewById(R.id.day_p3_weather_image);
+
+
+                    switch (weather) {
+                        case "Clear":
+                            imgView3.setImageResource(R.drawable.clear);
+                            break;
+                        case "Clouds":
+                            imgView3.setImageResource(R.drawable.clouds);
+                            break;
+                        case "Rain":
+                            imgView3.setImageResource(R.drawable.rain);
+                            break;
+                        case "Snow":
+                            imgView3.setImageResource(R.drawable.snow);
+                            break;
+                        default:
+                            imgView2.setImageResource(R.drawable.snow);
+                    }
+
+                    resultat = list.getJSONObject(32);
+                    temp = resultat.getJSONObject("main").getDouble("temp");
+                    temp -= 273.15;
+                    temperature = String.valueOf(temp).substring(0, 3) + " °C";
+                    TextView temp_jourp4 = (TextView) findViewById(R.id.day_p4_temperature);
+                    temp_jourp4.setText(temperature);
+
+                    weather = resultat.getJSONArray("weather").getJSONObject(0).getString("main");
+                    TextView weather_jourp4 = (TextView) findViewById(R.id.day_p4_weather);
+                    weather_jourp4.setText(weather);
+
+                    ImageView imgView4 = (ImageView) findViewById(R.id.day_p4_weather_image);
+
+
+                    switch (weather) {
+                        case "Clear":
+                            imgView4.setImageResource(R.drawable.clear);
+                            break;
+                        case "Clouds":
+                            imgView4.setImageResource(R.drawable.clouds);
+                            break;
+                        case "Rain":
+                            imgView4.setImageResource(R.drawable.rain);
+                            break;
+                        case "Snow":
+                            imgView4.setImageResource(R.drawable.snow);
+                            break;
+                        default:
+                            imgView4.setImageResource(R.drawable.snow);
+                    }
                 }
-
-                resultat = list.getJSONObject(8);
-                temp = resultat.getJSONObject("main").getDouble("temp");
-                temp -= 273.15;
-                temperature = String.valueOf(temp).substring(0,3) +" °C";
-                TextView temp_jourp1 = (TextView) findViewById(R.id.day_p1_temperature);
-                temp_jourp1.setText(temperature);
-
-                weather = resultat.getJSONArray("weather").getJSONObject(0).getString("main");
-                TextView weather_jourp1 = (TextView) findViewById(R.id.day_p1_weather);
-                weather_jourp1.setText(weather);
-
-                ImageView imgView1 = (ImageView)findViewById(R.id.day_p1_weather_image);
-
-
-                switch (weather)
-                {
-                    case "Clear":
-                        imgView1.setImageResource(R.drawable.clear);
-                        break;
-                    case "Clouds":
-                        imgView1.setImageResource(R.drawable.clouds);
-                        break;
-                    case "Rain":
-                        imgView1.setImageResource(R.drawable.rain);
-                        break;
-                    case "Snow":
-                        imgView1.setImageResource(R.drawable.snow);
-                        break;
-                    default:
-                        imgView.setImageResource(R.drawable.snow);
-                }
-
-                resultat = list.getJSONObject(16);
-                temp = resultat.getJSONObject("main").getDouble("temp");
-                temp -= 273.15;
-                temperature = String.valueOf(temp).substring(0,3) +" °C";
-                TextView temp_jourp2 = (TextView) findViewById(R.id.day_p2_temperature);
-                temp_jourp2.setText(temperature);
-
-                weather = resultat.getJSONArray("weather").getJSONObject(0).getString("main");
-                TextView weather_jourp2 = (TextView) findViewById(R.id.day_p2_weather);
-                weather_jourp2.setText(weather);
-
-                ImageView imgView2 = (ImageView)findViewById(R.id.day_p2_weather_image);
-
-
-                switch (weather)
-                {
-                    case "Clear":
-                        imgView2.setImageResource(R.drawable.clear);
-                        break;
-                    case "Clouds":
-                        imgView2.setImageResource(R.drawable.clouds);
-                        break;
-                    case "Rain":
-                        imgView2.setImageResource(R.drawable.rain);
-                        break;
-                    case "Snow":
-                        imgView2.setImageResource(R.drawable.snow);
-                        break;
-                    default:
-                        imgView2.setImageResource(R.drawable.snow);
-                }
-
-                resultat = list.getJSONObject(24);
-                temp = resultat.getJSONObject("main").getDouble("temp");
-                temp -= 273.15;
-                temperature = String.valueOf(temp).substring(0,3) +" °C";
-                TextView temp_jourp3 = (TextView) findViewById(R.id.day_p3_temperature);
-                temp_jourp3.setText(temperature);
-
-                weather = resultat.getJSONArray("weather").getJSONObject(0).getString("main");
-                TextView weather_jourp3 = (TextView) findViewById(R.id.day_p3_weather);
-                weather_jourp3.setText(weather);
-
-                ImageView imgView3 = (ImageView)findViewById(R.id.day_p3_weather_image);
-
-
-                switch (weather)
-                {
-                    case "Clear":
-                        imgView3.setImageResource(R.drawable.clear);
-                        break;
-                    case "Clouds":
-                        imgView3.setImageResource(R.drawable.clouds);
-                        break;
-                    case "Rain":
-                        imgView3.setImageResource(R.drawable.rain);
-                        break;
-                    case "Snow":
-                        imgView3.setImageResource(R.drawable.snow);
-                        break;
-                    default:
-                        imgView2.setImageResource(R.drawable.snow);
-                }
-
-                resultat = list.getJSONObject(32);
-                temp = resultat.getJSONObject("main").getDouble("temp");
-                temp -= 273.15;
-                temperature = String.valueOf(temp).substring(0,3) +" °C";
-                TextView temp_jourp4 = (TextView) findViewById(R.id.day_p4_temperature);
-                temp_jourp4.setText(temperature);
-
-                weather = resultat.getJSONArray("weather").getJSONObject(0).getString("main");
-                TextView weather_jourp4 = (TextView) findViewById(R.id.day_p4_weather);
-                weather_jourp4.setText(weather);
-
-                ImageView imgView4 = (ImageView)findViewById(R.id.day_p4_weather_image);
-
-
-                switch (weather)
-                {
-                    case "Clear":
-                        imgView4.setImageResource(R.drawable.clear);
-                        break;
-                    case "Clouds":
-                        imgView4.setImageResource(R.drawable.clouds);
-                        break;
-                    case "Rain":
-                        imgView4.setImageResource(R.drawable.rain);
-                        break;
-                    case "Snow":
-                        imgView4.setImageResource(R.drawable.snow);
-                        break;
-                    default:
-                        imgView4.setImageResource(R.drawable.snow);
-                }
-
             } catch (JSONException e) {
                 e.printStackTrace();
             }
