@@ -131,8 +131,8 @@ public class MeteoActivity extends Activity {
 
             JSONObject jsonResponse = null;
             try {
-                jsonResponse = new JSONObject(response);
-                if(jsonResponse.getString("cod") == "300") {
+                if(response != null) {
+                    jsonResponse = new JSONObject(response);
                     JSONArray list = jsonResponse.getJSONArray("list");
                     JSONObject resultat = list.getJSONObject(0);
                     double temp = resultat.getJSONObject("main").getDouble("temp");
@@ -289,6 +289,9 @@ public class MeteoActivity extends Activity {
                         default:
                             imgView4.setImageResource(R.drawable.snow);
                     }
+                }else{
+                    Intent intent = new Intent(MeteoActivity.this, MainActivity.class);
+                    startActivity(intent);
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
