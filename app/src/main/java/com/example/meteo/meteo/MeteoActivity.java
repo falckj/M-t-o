@@ -2,6 +2,7 @@ package com.example.meteo.meteo;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -38,6 +39,14 @@ public class MeteoActivity extends Activity {
             day2Name, day2Temp, day2Weather,
             day3Name, day3Temp, day3Weather,
             day4Name, day4Temp, day4Weather;
+
+    @Override
+    public void onBackPressed(){
+        super.onBackPressed();
+        Intent intent = new Intent(MeteoActivity.this, MainActivity.class);
+        startActivity(intent);
+
+    }
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
